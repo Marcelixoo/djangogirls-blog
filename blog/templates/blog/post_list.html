@@ -13,14 +13,16 @@
         <h1><a href="/">Django Girls Blog</a></h1>
     </header>
 
-    <section>
-        <p>published at: 14.06.2014, 12:14</p>
-        <h2><a href="">My first post</a></h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus inventore optio adipisci quidem velit odio ea nam. Vel debitis alias, non eaque necessitatibus, maxime adipisci quidem, unde laudantium sapiente aperiam.</p>
+    <hr>
 
-        <p>published at: 14.06.2014, 12:14</p>
-        <h2><a href="">My second post</a></h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus inventore optio adipisci quidem velit odio ea nam. Vel debitis alias, non eaque necessitatibus, maxime adipisci quidem, unde laudantium sapiente aperiam.</p>
+    <section>
+        {% for post in posts %}
+            <div>
+                <p>published at: {{ post.published_date }}</p>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
     </section>
 
     <footer>Powered by Marcelito <3</footer>
